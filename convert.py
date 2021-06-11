@@ -17,12 +17,7 @@ def convertpdf(infile,outfile):
         pageObj = pdfReader.getPage(page)
         # extracting text from page 
         pagetxt=pageObj.extractText()
-        partyst = pagetxt.find('(')
-        partyend = pagetxt.find(')')
-        party = pagetxt[partyst:partyend+1]
-        name = pagetxt[+0:partyst-1]
-        outp = name + "," + party + "\n"
-        outfile.write(outp)
+        outfile.write(pagetxt)
     # closing the pdf file object 
     pdfFileObj.close()
     outfile.close()

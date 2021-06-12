@@ -1,8 +1,11 @@
+
 # importing required modules 
+from types import MethodType
 import PyPDF2
 import glob, os
 import codecs
-import docutils
+import docx2txt
+import io
 
 def convertpdf(infile,outfile):
     pdfFileObj = open(infile, 'rb') 
@@ -22,6 +25,15 @@ def convertpdf(infile,outfile):
     pdfFileObj.close()
     outfile.close()
     basicfile.close()
+    print("pdf to txt success")
+
+    
+def convertdocx(infile,efile):
+    docx_txt = docx2txt.process(infile)
+    outfile = codecs.open(efile,'w',"utf-8")
+    outfile.write(docx_txt)
+    outfile.close()
+    print("docx to txt success")
 
 def findatype(infile):
     # this will return a tuple of root and extension
@@ -31,13 +43,19 @@ def findatype(infile):
     file_extension = split_tup[1]
     print("File Name: ", file_name)
     print("File Extension: ", file_extension)
+    ex=str(file_extension)
     ofile=".txt"
     efile=str(file_name+ofile)
-    convertpdf(infile,efile)
+    # chech the file extension to call the function
+    if ex == ".pdf":
+        convertpdf(infile,efile)
+    elif ex == ".docx":
+        convertdocx(infile,efile)
+    
 # findatype(infile)
 def folderssurf(folder):
     os.chdir(folder)
-    for file in glob.glob("*.pdf"):
+    for file in glob.glob("*.*"):
         infile=str(file)
         findatype(infile)
 folderssurf("pdfs")

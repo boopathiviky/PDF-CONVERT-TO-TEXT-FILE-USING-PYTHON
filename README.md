@@ -11,7 +11,7 @@ pathsdoc="YOU FULL PATH NAME"#Full path for word application
 outfolder="txtfiles/"#path output files 
 ```
 
-##REFERENCE CODE:
+## REFERENCE CODE:
 ```
 pathsdoc="c:/documents/project_folder/pdfs/"#Full path for word application
 outfolder="txtfiles/"#path output files 

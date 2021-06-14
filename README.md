@@ -10,15 +10,7 @@ Here pdfs is the folder name which contains PDF files.
 pathsdoc="YOU FULL PATH NAME"#Full path for word application
 outfolder="txtfiles/"#path output files 
 ```
----c:/
-    |
-    |->documents/
-              |
-              |->project_folder/
-                      |
-                      |->pdfs/
-                          |
-                          |->txtfiles/
+
 ##REFERENCE CODE:
 ```
 pathsdoc="c:/documents/project_folder/pdfs/"#Full path for word application
